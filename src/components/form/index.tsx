@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
@@ -19,7 +19,7 @@ import CardView from "../email/index";
 import UdfLogo from "../../assets/udf.jpeg";
 
 const GoogleForm = () => {
-  const [image1, setImage1] = useState(null);
+  const [image1, setImage1] = useState<File | null>(null);
   const [submittedData, setSubmittedData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   // Validation schema
@@ -56,14 +56,23 @@ const GoogleForm = () => {
     resolver: yupResolver(validationSchema),
   });
 
-  const uploadImage = async (imageFile) => {
+  const uploadImage = async (imageFile: any) => {
     if (!imageFile) return null;
     const storageRef = ref(storage, `images/${imageFile.name}_${Date.now()}`);
     await uploadBytes(storageRef, imageFile);
     return getDownloadURL(storageRef);
   };
 
-  const onSubmit = async (data) => {
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    // Check if e.target.files is not null
+    const files = e.target.files;
+    if (files && files.length > 0) {
+      setImage1(files[0]); // Set the first file in the state
+    }
+  };
+
+  const onSubmit = async (data: any) => {
     try {
       setIsLoading(true);
       const submissionsCollection = collection(db, "users");
@@ -93,7 +102,7 @@ const GoogleForm = () => {
         const image1Url = await uploadImage(image1);
         const formData = { ...data, imageUrl: image1Url, uniqueKey };
 
-        const res = await addDoc(submissionsCollection, {
+        await addDoc(submissionsCollection, {
           ...formData,
           timestamp: serverTimestamp(),
         });
@@ -213,13 +222,13 @@ const GoogleForm = () => {
               <label>Upload Image</label>
               <input
                 type="file"
-                onChange={(e) => setImage1(e.target.files[0])}
+                onChange={(e) => handleFileChange(e)}
                 className="input"
               />
             </div>
             <div className="form-field" style={{ textAlign: "left" }}>
               <div className="checkbox-container">
-              <input
+                <input
                   type="checkbox"
                   {...register("certify", {
                     required: "You must certify the information is correct",

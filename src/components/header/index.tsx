@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import {
   AppBar,
   Toolbar,
@@ -20,7 +20,7 @@ const Header = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const handleMenuOpen = (event) => {
+  const handleMenuOpen = (event:any) => {
     setAnchorEl(event.currentTarget);
   };
 

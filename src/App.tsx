@@ -1,4 +1,3 @@
-// import Sidebar from "./components/Sidebar/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/header/index";
 import Form from "./components/form/index";

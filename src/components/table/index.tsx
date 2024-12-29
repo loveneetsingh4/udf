@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import moment from "moment";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase/config";
@@ -23,28 +23,32 @@ const UserTable = () => {
   }, []);
 
   const columns = [
-    { field: "name", headerName: "Name", width: 150,flex:1 },
-    { field: "email", headerName: "Email", width: 200 ,flex:1 },
+    { field: "name", headerName: "Name", width: 150, flex: 1 },
+    { field: "email", headerName: "Email", width: 200, flex: 1 },
     {
       field: "dob",
       headerName: "Dob",
       width: 150,
-      flex:1 ,
-      renderCell: (params:any) => {
-        const timestamp = params.value; 
+      flex: 1,
+      renderCell: (params: any) => {
         // const date = timestamp.toDate();
-        return moment().format("DD/MM/YYYY");
-      }
+        return moment(params).format("DD/MM/YYYY");
+      },
     },
     // { field: "father_name", headerName: "Fathers Name", width: 200 },
-    { field: "mobile", headerName: "Contact No.", width: 200,flex:1 , },
-    { field: "address", headerName: "Permanent Address", width: 200 ,flex:1 ,},
-    { field: "qualification", headerName: "Qualification", width: 200 ,flex:1 ,},
+    { field: "mobile", headerName: "Contact No.", width: 200, flex: 1 },
+    { field: "address", headerName: "Permanent Address", width: 200, flex: 1 },
+    {
+      field: "qualification",
+      headerName: "Qualification",
+      width: 200,
+      flex: 1,
+    },
     {
       field: "image1Url",
       headerName: "Image 1",
       width: 150,
-      flex:1 ,
+      flex: 1,
       renderCell: (params: any) => (
         <img
           src={params.value}
@@ -59,12 +63,7 @@ const UserTable = () => {
   return (
     <Box sx={{ height: 400, width: "100%" }} className="table-container">
       <h2>User List</h2>
-      <DataGrid
-        rows={users}
-        columns={columns}
-        pageSize={10}
-        rowsPerPageOptions={[5, 10, 20]}
-      />
+      <DataGrid rows={users} columns={columns} />
     </Box>
   );
 };
