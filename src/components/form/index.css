@@ -1,0 +1,89 @@
+/* Container for the form */
+.google-form-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd; /* Add border around the form */
+  border-radius: 10px; /* Rounded corners */
+  background-color: #f9f9f9;
+}
+
+/* Logo styling */
+.logo-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 100px; /* Adjust the logo size */
+  height: auto;
+}
+
+/* Form Title */
+.form-title {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Form Field */
+.form-field {
+  margin-bottom: 15px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input.error {
+  border-color: red; /* Highlight error fields with red border */
+}
+
+.error-text {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Submit button */
+.submit-button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #5347c1;
+}
+
+
+.loader {
+  border: 4px solid #f3f3f3; /* Light gray background */
+  border-top: 4px solid #3498db; /* Blue spinner */
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite; /* Spin animation */
+  margin: 0 auto;
+}
+
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
