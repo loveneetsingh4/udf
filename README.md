@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# udf
-udf health 
-=======
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
@@ -52,4 +48,3 @@ export default tseslint.config({
   },
 })
 ```
->>>>>>> f8d4a0e2c8f510d675557bb31c83eade0714f66a
