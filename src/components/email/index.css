@@ -1,0 +1,77 @@
+/* App.css */
+body {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .card {
+    width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 100px;
+  }
+  
+  .title {
+    text-align: center;
+  }
+  
+  .title h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .title p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .card-body {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .image-section img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  .info-section {
+    margin-left: 20px;
+  }
+  
+  .info-section p {
+    font-size: 16px;
+    margin: 8px 0;
+  }
+  
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .footer-left {
+    display: flex;
+    text-align: left;
+    justify-self: space-between
+  }
+  
+  .footer-right {
+    text-align: right;
+  }
+  
+  .footer-right img {
+    width: 100px;
+  }
+  
